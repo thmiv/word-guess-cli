@@ -1,0 +1,20 @@
+{
+  "name": "word-guess-cli",
+  "version": "1.0.0",
+  "description": "NodeJS CLI hangman game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thmiv/word-guess-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thmiv/word-guess-cli/issues"
+  },
+  "homepage": "https://github.com/thmiv/word-guess-cli#readme"
+}
