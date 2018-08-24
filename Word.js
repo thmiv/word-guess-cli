@@ -5,8 +5,21 @@ A function that returns a string representing the word. This should call the fun
 A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
 */
 
-var Letter = require("./Letter.js");
+const Letter = require("./Letter.js");
+var wordDisplay = [];
 
 function Word(letterGuess, currentWord) {
-    
+    this.wordDisplay = []
+    this.letterGuess = letterGuess;
+    this.currentWord = currentWord;
+    this.createWordDisplay = function () {
+        var letterCheck = new Letter(letterGuess, currentWord);
+        for (i = 0; i < currentWord.length; i++) {
+            wordDisplay.push(letterCheck.sendChar());
+        }
+        return wordDisplay;
+    }
 }
+
+var wordCreate = new Word('g', "mongoose");
+console.log(wordCreate.createWordDisplay());

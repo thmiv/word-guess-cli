@@ -10,9 +10,9 @@ function Letter(letterGuess, currentWord) {
     this.letterGuess = letterGuess;
     this.currentWord = currentWord;
 
-    this.spitChar = function() {
-        console.log(currentWord.includes(letterGuess.toUpperCase()));
-        if (currentWord.includes(letterGuess.toUpperCase())) {
+    this.sendChar = function() {
+        //console.log(currentWord.includes(letterGuess.toUpperCase()));
+        if (currentWord.toUpperCase().includes(letterGuess.toUpperCase())) {
             return letterGuess.toUpperCase();
         } else {
             return "_";
@@ -20,7 +20,7 @@ function Letter(letterGuess, currentWord) {
     }
 }
 
-//var letterCheck = new Letter('j', "JOANNE");
-//console.log(letterCheck.spitChar());
-
 module.exports = Letter;
+
+var letterCheck = new Letter('g', "mongoose");
+console.log(letterCheck.sendChar());
