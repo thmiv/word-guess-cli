@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/thmiv/word-guess-cli/issues"
   },
-  "homepage": "https://github.com/thmiv/word-guess-cli#readme"
+  "homepage": "https://github.com/thmiv/word-guess-cli#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "inquirer": "^6.2.0"
+  }
 }

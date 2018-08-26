@@ -6,20 +6,30 @@ A function that takes a character as an argument and calls the guess function on
 */
 
 const Letter = require("./Letter.js");
-var wordDisplay = [];
 
-function Word(letterGuess, currentWord) {
-    this.wordDisplay = []
-    this.letterGuess = letterGuess;
-    this.currentWord = currentWord;
-    this.createWordDisplay = function () {
-        var letterCheck = new Letter(letterGuess, currentWord);
-        for (i = 0; i < currentWord.length; i++) {
-            wordDisplay.push(letterCheck.sendChar());
-        }
-        return wordDisplay;
+function Word(currentWord) {
+    this.wordDisplay = [];
+
+    for (i = 0; i < currentWord.length; i++) {
+        var newLetter = new Letter(currentWord[i]);
+        this.wordDisplay.push(newLetter);
     }
 }
 
-var wordCreate = new Word('g', "mongoose");
-console.log(wordCreate.createWordDisplay());
+Word.prototype.createWord = function() {
+    var displayWord = "";
+    this.wordDisplay.forEach(function(currentLetter) {
+        displayWord += currentLetter.sendLetter();
+    });
+    return displayWord;
+}
+
+Word.prototype.currentGuess = function(userGuess) {
+    this.wordDisplay.forEach(function(currentLetter) {
+        currentLetter.currentLetterGuess(userGuess);
+        //console.log(currentLetter.letterGuess);  // testing
+    })
+    
+}
+
+module.exports = Word;

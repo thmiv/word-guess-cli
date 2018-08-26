@@ -6,21 +6,23 @@ A function that returns the underlying character if the letter has been guessed,
 A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
 */
 
-function Letter(letterGuess, currentWord) {
-    this.letterGuess = letterGuess;
-    this.currentWord = currentWord;
+function Letter(currentChar) {
+    this.currentChar = currentChar;
+    this.letterGuess = false;
+}
 
-    this.sendChar = function() {
-        //console.log(currentWord.includes(letterGuess.toUpperCase()));
-        if (currentWord.toUpperCase().includes(letterGuess.toUpperCase())) {
-            return letterGuess.toUpperCase();
-        } else {
-            return "_";
-        }
+Letter.prototype.sendLetter = function() {
+    if (this.letterGuess) {
+        return this.currentChar;
+    } else {
+        return "_";
+    }
+}
+
+Letter.prototype.currentLetterGuess = function(userGuess) {
+    if (userGuess.toUpperCase() === this.currentChar.toUpperCase()) {
+        this.letterGuess = true;
     }
 }
 
 module.exports = Letter;
-
-var letterCheck = new Letter('g', "mongoose");
-console.log(letterCheck.sendChar());
